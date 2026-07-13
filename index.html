@@ -2,16 +2,25 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>간단한 회원가입 폼</title>
+    <title>체크박스 예제</title>
 </head>
 <body>
-    <h1>회원가입</h1>
+    <h1>관심 분야 선택</h1>
     <form action="/submit" method="POST">
-        <label for="username">사용자 이름:</label>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">비밀번호:</label>
-        <input type="password" id="password" name="password"><br>
-        <input type="submit" value="가입하기">
+        <p>관심 분야를 선택하세요:</p>
+        <label>
+            <input type="checkbox" name="interest" value="sports"> 스포츠
+        </label><br>
+        <label>
+            <input type="checkbox" name="interest" value="music"> 음악
+        </label><br>
+        <label>
+            <input type="checkbox" name="interest" value="books"> 독서
+        </label><br>
+        <label>
+            <input type="checkbox" name="interest" value="travel"> 여행
+        </label><br>
+        <input type="submit" value="제출">
     </form>
 </body>
 </html>
