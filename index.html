@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang+"ko">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>사전 서식 태그 예제</title>
+    <meta charset="UTF-8">
+    <title>간단한 회원가입 폼</title>
 </head>
 <body>
-  <h1>시의 예</h1>
-  <pre>
-  <b>바람<b/>이 불어오는 곳
-  그곳에<span style="color:red">내 마음이 머무네</span>
-
-  바람이 그치는 곳 
-  그곳에 내 꿈이 쉬어가네
-  </pre>
+    <h1>회원가입</h1>
+    <form action="/submit" method="POST">
+        <label for="username">사용자 이름:</label>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password" name="password"><br>
+        <input type="submit" value="가입하기">
+    </form>
 </body>
 </html>
