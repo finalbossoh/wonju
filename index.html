@@ -102,7 +102,7 @@
   /* ---------- Top nav: control-center style capsule ---------- */
   .nav-wrap{
     position:fixed; top:20px; left:50%; transform:translateX(-50%);
-    z-index:50; width:min(560px, 92vw);
+    z-index:50; width:min(620px, 92vw);
     animation: navDrop .8s cubic-bezier(.2,.8,.2,1) both;
   }
   @keyframes navDrop{
@@ -118,12 +118,13 @@
     font-family:'Outfit', sans-serif; font-weight:700; font-size:15px; letter-spacing:0.3px;
   }
   .nav ul{
-    list-style:none; display:flex; gap:18px; margin:0; padding:0;
+    list-style:none; display:flex; gap:16px; margin:0; padding:0;
   }
   .nav a{
     text-decoration:none; font-size:13px; font-weight:600; color:var(--ink-soft);
     transition:color .25s;
     position:relative;
+    white-space:nowrap;
   }
   .nav a::after{
     content:'';
@@ -363,6 +364,38 @@
     100%{ transform:translateX(220%); }
   }
 
+  /* ---------- Specs: PC & Apple device cards ---------- */
+  .specs-group{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:20px;
+  }
+  .spec-card{
+    border-radius:28px;
+    padding:26px 28px;
+  }
+  .spec-card:hover{
+    transform:translateY(-4px);
+    box-shadow: 0 14px 40px var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+  .spec-card h3{
+    font-family:'Outfit', sans-serif; font-weight:700; font-size:16px;
+    margin:0 0 16px; display:flex; align-items:center; gap:8px;
+  }
+  .spec-card ul{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:11px;
+  }
+  .spec-card li{
+    display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+    font-size:13.5px;
+    padding-bottom:11px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .spec-card li:last-child{ border-bottom:none; padding-bottom:0; }
+  .spec-card li .k{ color:var(--ink-soft); font-weight:700; white-space:nowrap; }
+  .spec-card li .v{ font-weight:600; text-align:right; }
+
   /* ---------- Favorites: filter chips + glass gallery ---------- */
   .filter-row{
     display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px;
@@ -464,8 +497,8 @@
     .hero-card{ grid-template-columns:1fr; text-align:center; }
     .hero-text .tags, .status-pill{ margin-left:auto; margin-right:auto; }
     .avatar{ margin:0 auto; }
-    .nav ul{ gap:12px; }
-    .nav a{ font-size:12px; }
+    .nav ul{ gap:10px; }
+    .nav a{ font-size:11.5px; }
   }
 </style>
 </head>
@@ -482,6 +515,7 @@
       <li><a href="#interests">관심사</a></li>
       <li><a href="#timeline">생애</a></li>
       <li><a href="#skills">역량</a></li>
+      <li><a href="#specs">사양</a></li>
       <li><a href="#favorites">좋아하는것들</a></li>
       <li><a href="#contact">연락처</a></li>
     </ul>
@@ -568,9 +602,37 @@
   </div>
 </section>
 
+<section class="block" id="specs">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="num">05</span><h2>사용 장비</h2></div>
+    <div class="specs-group reveal reveal-stagger">
+      <div class="spec-card glass">
+        <h3>🖥️ 데스크탑 사양</h3>
+        <ul>
+          <li><span class="k">CPU</span><span class="v">AMD Ryzen 7 9800X3D</span></li>
+          <li><span class="k">GPU</span><span class="v">NVIDIA RTX 3060 12GB × 2</span></li>
+          <li><span class="k">RAM</span><span class="v">Samsung 16GB × 2 (32GB)</span></li>
+          <li><span class="k">SSD</span><span class="v">Samsung 980 PRO 2TB × 2</span></li>
+          <li><span class="k">PSU</span><span class="v">Corsair 850W Platinum Full Modular</span></li>
+        </ul>
+      </div>
+      <div class="spec-card glass">
+        <h3>📱 서브 기기 (Apple)</h3>
+        <ul>
+          <li><span class="k">노트북</span><span class="v">Macbook Air 13형 (M5) 512GB</span></li>
+          <li><span class="k">태블릿</span><span class="v">iPad Pro 13형 (7세대) Cellular 512GB</span></li>
+          <li><span class="k">스마트폰</span><span class="v">iPhone 16e</span></li>
+          <li><span class="k">이어폰</span><span class="v">AirPods Pro 2</span></li>
+          <li><span class="k">워치</span><span class="v">Apple Watch SE 2</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="favorites">
   <div class="wrap">
-    <div class="section-head reveal"><span class="num">05</span><h2>내가 좋아하는 것들</h2></div>
+    <div class="section-head reveal"><span class="num">06</span><h2>내가 좋아하는 것들</h2></div>
 
     <div class="filter-row reveal" id="filterRow">
       <span class="filter-chip glass" data-filter="all" data-active="true">전체</span>
@@ -581,7 +643,7 @@
       <span class="filter-chip glass" data-filter="people">사람</span>
     </div>
 
-    <div class="fav-grid reveal" id="favGrid">
+    <div class="fav-grid" id="favGrid">
       <div class="fav-card glass" data-kind="photo" data-cat="character">
         <div class="frame"><img src="Images/미즈키프로필1.png" alt="미즈키"></div>
         <div class="cap"><span class="name">미즈키</span><span class="cat">최애 캐릭터</span></div>
